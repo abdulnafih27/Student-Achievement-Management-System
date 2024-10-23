@@ -83,7 +83,7 @@ The backend API will be running on `http://localhost:5000`.
 ├── /routes        # API routes for authentication, projects, achievements, marks
 ├── /middlewares   # JWT authentication middleware
 ├── /controllers   # Logic for handling requests
-├── /config        # MongoDB connection setup
+├── /db            # MongoDB connection setup
 └── server.js      # Main entry point for the application
 ```
 
