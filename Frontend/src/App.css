@@ -1,0 +1,650 @@
+#root {
+  margin: 0 0;
+  /* padding: 2rem; */
+  text-align: center;
+  padding: 0;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  padding: 20px;
+  text-align: center;
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121212;
+  border-radius: 8px;
+}
+
+.logout-btn {
+  display: inline-block;
+  /* display: flex; */
+  margin-left: 80vw;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #6200ea;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #595555;
+}
+
+.dashboard-content {
+  background-color: #121212;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 95%;
+}
+
+/* Home.css */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  padding: 20px;
+  text-align: center;
+}
+
+.home-actions {
+  margin-top: 20px;
+}
+
+.action-link {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #6200ea;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.action-link:hover {
+  background-color: #3700b3;
+}
+
+
+/* Dark theme styles for the sign-in form */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  display: flex;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden; /* Prevents scrolling for the whole page */
+}
+
+
+
+.signin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.signin-form {
+  background-color: #1f1f1f;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.signin-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.floating-label {
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  background-color: #1f1f1f;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #b0b0b0;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px 10px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder {
+  color: #888;
+}
+
+.form-group input:focus {
+  border-color: #6200ea;
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%; /* Same width as input fields */
+  padding: 15px; /* Adjusted padding for button */
+  border: none;
+  border-radius: 4px;
+  background-color: #6200ea;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.submit-btn:hover {
+  background-color: #3700b3;
+}
+
+.submit-btn:focus {
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .signin-form {
+    padding: 20px;
+    max-width: 90%; /* Adjusting width for smaller screens */
+  }
+}
+
+
+.error-message-container {
+  background-color: #f8d7da; /* Light red background */
+  border: 1px solid #f5c6cb; /* Border color */
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px; /* Space below the error message */
+}
+
+.error-message {
+  color: #721c24; /* Dark red text color */
+  margin: 0; /* Remove default margin */
+}
+
+/* Dark theme styles for the signup form */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.signup-form {
+  background-color: #1f1f1f;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.floating-label {
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  background-color: #1f1f1f;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #b0b0b0;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px 10px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder {
+  color: #888;
+}
+
+.form-group input:focus {
+  border-color: #6200ea;
+  outline: none;
+}
+
+/* Light green border for matching passwords */
+.form-group input.matching {
+  border-color: #32CD32;
+}
+
+/* Red border for mismatched passwords */
+.form-group input.not-matching {
+  border-color: #FF6347;
+}
+
+.submit-btn {
+  width: 100%; /* Same width as input fields */
+  padding: 15px; /* Adjusted padding for button */
+  border: none;
+  border-radius: 4px;
+  background-color: #6200ea;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.submit-btn:hover {
+  background-color: #3700b3;
+}
+
+.submit-btn:focus {
+  outline: none;
+}
+
+.submit-btn:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .signup-form {
+    padding: 20px;
+    max-width: 90%; /* Adjusting width for smaller screens */
+  }
+}
+.layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.sidebar {
+  max-height: 98vh; /* Full viewport height */
+  width: 250px;
+  background-color: #5e5d5d;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 0.5rem;
+  padding: 0 2rem 0 1rem;
+  margin: 0.4rem;
+}
+
+
+.main-content {
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto; /* Enables vertical scrolling within main content */
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Add this to your CSS file */
+
+.app-container {
+  display: flex;
+  min-height: 100vh; /* Ensures full viewport height */
+  min-width: 115vw;
+}
+
+.sidebar {
+  width: 250px; /* Adjust width as needed */
+  background-color: #393939; /* Example background color */
+}
+
+.main-content {
+  flex: 1; /* Take up remaining space */
+  padding: 20px; /* Add padding if needed */
+  max-width: 90%;
+}
+
+
+
+.sidebar-title {
+  color: #ecf0f1;
+    font-size: 24px;
+}
+
+main {
+  padding: 0 0 0 1rem;
+  width: 100vw;
+  overflow-y: auto;
+}
+
+.main-content::-webkit-scrollbar {
+  display: none;
+}
+
+.main-content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  padding-top: 0;
+}
+
+
+.menu-item {
+  margin: 10px 0; /* Add some margin between items */
+}
+
+.menu-link {
+  display: flex; /* Flex display for icons and text alignment */
+  align-items: center; /* Center vertically */
+  color: #ecf0f1; /* Menu link color */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.5rem;
+  margin: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.menu-link:hover {
+  color: #c5c5c5; /* Background on hover */
+  border-radius: 5px; /* Rounded corners on hover */
+
+}
+
+.menu-icon {
+  margin-right: 15px;
+  font-size: 1.5px;
+}
+
+.menu-item span{
+  margin-left: 1rem;
+}
+
+
+.item {
+  background-color: hsla(0, 0%, 12%);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 2rem ;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  /* position: relative; */
+}
+.container{
+  display: flex;
+}
+.images {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  max-width: 100%; /* Ensures container takes up available space */
+  padding: 1rem; /* Adds some padding inside the container */
+  justify-content: center;
+
+}
+
+.images img {
+  max-width: 20rem;
+  height: auto; /* Ensures images maintain aspect ratio */
+  object-fit: cover; /* Ensures image fits inside the bounds without distortion */
+  /* transition: all 10s ease; */
+}
+
+.images::-webkit-scrollbar {
+  height: 8px; /* Set height of the scrollbar */
+}
+
+.images::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); /* Scrollbar thumb styling */
+  border-radius: 4px;
+}
+
+.images::-webkit-scrollbar-track {
+  background-color: transparent; /* Scrollbar track styling */
+}
+
+
+/* Image gallery */
+.images img {
+  max-width: 20rem;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+/* Modal container */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Black with transparency */
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Modal content (larger image) */
+.modal-content-image {
+  margin: auto;
+  display: flex;
+  min-width: 50vw;
+  min-height: 20vh;
+  object-fit: cover;
+}
+
+/* Left and right navigation buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: #888 solid;
+}
+
+/* Modal background overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: 20rem;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* Modal content styling */
+.modal-content {
+  background-color: rgb(32, 32, 32);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.item button {
+  padding: 0.5rem 1rem;
+  background-color: hsl(0, 0%, 10%, 0);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 1rem 0 1rem;
+}
+
+.item button:hover {
+  background-color: #121212;
+  /* border: 1px solid #3700b3; */
+}
+
+.add-btn{
+  margin-top: 1rem;
+  height: 3rem;
+  margin-left: auto;
+  background-color: #3700b3;
+}
+.add-btn:hover{
+  background-color: #121212;
+  border-color:  #3700b3;
+}
+
+.item-body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    width: 75dvw;
+
+    /* position: relative; */
+}
+
+.heading {
+  /* border: 2px solid white; */
+  display: flex;
+  flex-direction: row;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.heading h2{
+  font-size: 1.5rem;
+}
+
+.item {
+  max-width: 100%;
+  text-align:left;
+  /* padding: 0.2rem 2% 0 2%; */
+}
+
+.item p{
+  font-size: 1rem;
+}
+
+.item-buttons{
+  /* border: 2px solid white; */
+  text-align: end;
+  margin-bottom: 0%;
+  margin-right: 0%;
+  /* width: 102%; */
+  display: flex;
+}
+
+#edit{
+  margin-left: 0;
+  margin-right: 0;
+  height: 3rem;
+}
+
+#delete{
+  height: 3rem;
+}
+
+
+#add-images{
+  margin-left: auto;
+  margin-top: 0;
+  height: 3rem;
+}
+
+#delete-image{
+  position: absolute;
+  top: 1.7rem;
+  font-size: 1.5rem;
+}
+
+

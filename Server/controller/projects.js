@@ -2,6 +2,8 @@ const { NotFoundError, BadRequestError } = require("../errors");
 const Projects = require("../model/projects");
 const { StatusCodes } = require("http-status-codes");
 const Image = require("../model/images");
+const fs = require("fs");
+const path = require("path");
 
 
 
@@ -23,7 +25,7 @@ const getAllProjects = async (req, res) => {
       .json({ success: false, msg: error });
   }
 };
-const createProject = async (req, res) => {
+const createProject = async (req, res, next) => {
   try {
     const {name, description} = req.body;
     if(!name || !description){
@@ -33,9 +35,7 @@ const createProject = async (req, res) => {
     const project = await Projects.create(req.body);
     res.status(StatusCodes.CREATED).json({ success: true, project });
   } catch (error) {
-    res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ success: false, msg: error });
+    next(error)
   }
 };
 
@@ -57,14 +57,15 @@ const getProject = async (req, res) => {
 
 const getProjectImages = async (req, res, next) => {
   try {
-    const { id, imageId } = req.params;
-    const image = await Image.findOne({ entityId : id, _id: imageId});
+    const { id } = req.params;
+    const image = await Image.find({ entityId : id});
     // console.log(image)
     res.status(StatusCodes.OK).json({success : true, data : image})
   } catch (error) {
    next(error); 
   }
 }
+
 
 const updateProject = async (req, res, error) => {
     try {
@@ -103,11 +104,10 @@ const updateProject = async (req, res, error) => {
 // Function to add image to a project (works similarly for Internship or Achievement)
 const addImageToProject = async (req, res, next) => {
   const { id } = req.params;
-  const { url } = req.body;
+
+  const imageName = req.file.filename
   const student = req.user.userId
-  if (!url) {
-    throw new BadRequestError("Image URL is required");
-  }
+ 
 
   try {
     const project = await Projects.findOne({_id : id, student : student});
@@ -115,11 +115,11 @@ const addImageToProject = async (req, res, next) => {
       throw new NotFoundError(`No Project with id : ${id}`)
     }
     const image = await Image.create({
-      url,
+      url : imageName,
       entityType: "Projects",
       entityId: id,
     });
-
+ 
     project.images.push(image._id);
     await project.save();
 
@@ -130,15 +130,44 @@ const addImageToProject = async (req, res, next) => {
 };
 
 
-const removeImageFromProject = async (req, res) => {
-    const {id, imageId} = req.params;
-    const student = req.user.userId;
-  const project = await Projects.findOneAndUpdate({_id : id, student : student}, {
-    $pull: { images: imageId },
-  });
-  const image = await Image.findByIdAndDelete(imageId);
-  res.status(StatusCodes.OK).json({project, image })
+
+const removeImageFromProject = async (req, res, next) => {
+  const { id, imageId } = req.params;
+  const student = req.user.userId;
+
+  try {
+     const image = await Image.findByIdAndDelete(imageId);
+    if (!image) {
+        return res.status(404).json({ message: "Image not found" });
+    }
+
+    // Construct the full path of the image to delete
+    const imagePath = path.join(__dirname, '../public/images', image.url);
+
+    // Attempt to delete the image file
+    fs.unlink(imagePath, async (err) => {
+        if (err) {
+            console.error("Error deleting the file:", err);
+            return res.status(500).json({ message: "Error deleting the file" });
+        }
+
+        // await Image.findByIdAndDelete(imageId);
+
+        // Remove the image entry from the database
+        const project = await Projects.findOneAndUpdate(
+            { _id: id, student: student },
+            { $pull: { images: imageId } },
+            {new : true}
+        );
+
+        res.status(StatusCodes.OK).json({ project, message: "Image deleted successfully" });
+    });
+  } catch (error) {
+    console.error("Error removing image from project:", error);
+    next(error)
+  }
 };
+
 
 
 
@@ -149,6 +178,8 @@ const deleteProject = async (req, res, next) => {
       user: { userId },
       params: { id: projectId },
     } = req;
+
+    const images = await Image.deleteMany({entityId: projectId});
     const project = await Projects.findOneAndDelete({
       _id: projectId,
       student: userId,

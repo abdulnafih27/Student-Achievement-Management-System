@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer')
 
 const {
     getAllProjects,
@@ -9,17 +10,21 @@ const {
     deleteProject,
     addImageToProject,
     removeImageFromProject,
-    getProjectImages,
-} = require('../controller/projects')
+    getProjectImages
+} = require('../controller/projects');
+
+
+const upload = require('../middleware/multer')
 
 router.post('/', createProject)
 router.get('/', getAllProjects )
 router.get('/:id', getProject)
 router.patch('/:id', updateProject)
 router.delete('/:id', deleteProject)
-router.post("/:id/images", addImageToProject);
-router.get("/:id/images/:imageId", getProjectImages)
+router.post("/:id/images", upload.single('file') ,addImageToProject);
+router.get("/:id/images",getProjectImages);
 router.delete("/:id/images/:imageId", removeImageFromProject);
+
 
 
 module.exports = router;

@@ -20,6 +20,7 @@ const cors = require('cors');
 const Port = process.env.PORT || 5000;
 
 app.use(express.json());
+app.use(express.static('public'))
 app.use(
   cors({
     origin: "http://localhost:3000", // Update to your frontend's URL
@@ -34,6 +35,7 @@ app.use('/student/marks',authenticationMiddleware, marksRouter)
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
+
 
 const start = async () => {
     try {
