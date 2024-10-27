@@ -78,13 +78,13 @@ The frontend will be running on `http://localhost:3000`.
 - **PUT** `/student/projects/:id` - Update an existing project
 - **DELETE** `/student/projects/:id` - Delete a project
 
-### Achievements
+### Achievements (FrontEnd Pending)
 - **GET** `/student/achievements` - Get all achievements for the logged-in user
 - **POST** `/student/achievements` - Create a new achievement
 - **PUT** `/student/achievements/:id` - Update an achievement
 - **DELETE** `/student/achievements/:id` - Delete an achievement
 
-### Marks
+### Marks (FrontEnd Pending)
 - **GET** `/student/marks` - Get all semester marks
 - **POST** `/student/marks` - Add marks for a semester
 - **PUT** `/student/marks/:id` - Update marks for a semester
