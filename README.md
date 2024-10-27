@@ -102,7 +102,7 @@ The frontend will be running on `http://localhost:3000`.
 
 /frontend
 ├── /components    # React components for different pages and features
-├── /pages     
+├── /pages
 ├── App.js         # Main app component
 └── index.js       # React entry point
 ```
